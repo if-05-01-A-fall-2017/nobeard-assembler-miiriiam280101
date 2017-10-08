@@ -1,0 +1,43 @@
+#Print Numbers
+#Miriam Forstinger
+#3AHIF
+
+"Enter a number"
+inc 12 #reserve space
+
+#Print "Enter a number"
+lit 0 #
+lit 14
+lit 15
+out 2
+
+#Read an integer
+la 0 32
+la 0 36
+in 0
+
+#Count starts with 1
+la 0 36
+lit 1
+sto
+
+#loop
+.number
+lv 0 36
+lit 1
+out 0
+out 3
+
+la 0 36
+lv 0 36
+lit 1
+add
+sto
+
+lv 0 32
+lv 0 36
+rel 0 #check if the number is smaller than the integer
+fjmp .number
+
+
+halt

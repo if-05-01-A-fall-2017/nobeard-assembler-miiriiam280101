@@ -1,0 +1,43 @@
+#Percentage Calculator
+#Miriam Forstinger
+#3AHIF
+
+"Enter maximum number of points to be achieved:Enter the points actually achieved"
+inc 12
+
+#print "Enter max number"
+lit 0 #adress
+lit 46 #string length
+lit 47 #col width
+out 2 #print
+
+#speichern der max points
+la 0 32 #adress to store
+la 0 36 #adress to store success flag
+in 0 #input int
+
+#print "Enter the points"
+lit 46 #adress
+lit 34 #string length
+lit 35 #col width
+out 2 #print
+
+#speichern der actual points
+la 0 36 #adress to store
+la 0 40 #adress to store success flag
+in 0 #input int
+
+la 0 40 #load adress to store the result
+lv 0 36 #load input actual points
+lit 100 #100
+mul #multiply
+lv 0 32 #load the max of points
+div #division
+sto #store the result
+
+#Output
+lv 0 40 #load the result
+lit 1 #one int will be print
+out 0 #print integer
+out 3 #output a new line
+halt
