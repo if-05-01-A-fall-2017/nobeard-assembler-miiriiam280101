@@ -1,0 +1,81 @@
+#PrimeFactor
+#Miriam Forstinger
+#3AHIF
+
+
+"Enter a positive integer:It is a negative integer"
+
+inc 20 #reserve space
+
+#print "Enter a positive integer"
+lit 0 #adress
+lit 25 #string length
+lit 26 #col width
+out 2 #out string
+
+#read int
+la 0 32 #address to store int
+la 0 36 # adress to store success flag
+in 0 #input int
+
+#check if negative
+lv 0 32 #load integer value
+lit 0
+rel 0 #check if smaller than 0
+tjmp .negative #if jump down to .negative
+
+#store first prime factor
+la 0 36
+lit 2
+sto
+
+.nextPrimeFactor
+lv 0 32 #load integer
+lv 0 36 #load primeFactor
+mod #integer%primefactor
+lit 0
+rel 2 #check if mod equals 0
+tjmp .Prime
+
+#check if prime
+la 0 36
+lv 0 36
+lit 1
+add
+sto
+jmp .nextPrimeFactor
+
+
+
+#Primfaktorzerlegung
+.Prime
+la 0 32
+lv 0 32
+lv 0 36
+div
+sto
+
+lv 0 36
+lit 1
+out 0
+out 3
+
+lv 0 32
+lit 1
+rel 2 #check if integer equals 1
+fjmp .nextPrimeFactor
+
+#jump to the end when integer is 1
+jmp .end #jump to end
+
+
+#integer value is negative
+.negative
+lit 25 #adress
+lit 24 #string length
+lit 25 #col width
+out 2 #out string
+
+
+.end
+halt
